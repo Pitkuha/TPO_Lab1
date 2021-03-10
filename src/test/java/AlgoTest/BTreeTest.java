@@ -8,9 +8,10 @@ import org.junit.Test;
 public class BTreeTest extends Assert {
     private BTreeT t = new BTreeT(2); // A B-Tree with minium degree 2
     private BTreeT o = new BTreeT(2);
+
     //Инициализация BTree
     @Before
-    public void init(){
+    public void init() {
         t.insert(1);
         t.insert(3);
         t.insert(7);
@@ -31,7 +32,7 @@ public class BTreeTest extends Assert {
     }
 
     @Test
-    public void Traversal(){
+    public void Traversal() {
         System.out.println("Первое BTree");
         System.out.println("Вывод элементов");
         assertEquals("[1, 2, 3, 4, 5, 6, 7, 10, 11, 12]", t.traverse().toString());
@@ -45,13 +46,13 @@ public class BTreeTest extends Assert {
         assertEquals("[1, 2, 3, 5, 6, 7, 10, 11, 12]", t.traverse().toString());
         System.out.println("Поиск элемента");
         t.search(7);
-        assertArrayEquals(new Integer[]{2,6,7}, t.arrayList.toArray(new Integer[0]));
+        assertArrayEquals(new Integer[]{2, 6, 7}, t.arrayList.toArray(new Integer[0]));
         System.out.println(t.arrayList.toString());
         t.search(11);
-        assertArrayEquals(new int[]{2,6,10,11}, t.arrayList.stream().mapToInt(i -> i).toArray());
+        assertArrayEquals(new int[]{2, 6, 10, 11}, t.arrayList.stream().mapToInt(i -> i).toArray());
         System.out.println(t.arrayList.toString());
         t.search(10);
-        assertArrayEquals(new int[]{2,6,10}, t.arrayList.stream().mapToInt(i -> i).toArray());
+        assertArrayEquals(new int[]{2, 6, 10}, t.arrayList.stream().mapToInt(i -> i).toArray());
         System.out.println(t.arrayList.toString());
         System.out.println();
         System.out.println("Второе BTree");
